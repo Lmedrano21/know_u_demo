@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Know U — Crea tu Prenda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <span class="nav-logo">KNOW<span class="accent">U</span></span>
+  <a href="/cart" class="cart-btn" id="cartBtn">
+    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/>
+      <path d="M16 10a4 4 0 01-8 0"/>
+    </svg>
+    <span class="cart-badge" id="cartBadge">0</span>
+  </a>
+</nav>
+
+<!-- MAIN -->
+<main class="creator-layout">
+
+  <!-- LEFT: Controls -->
+  <section class="panel-left">
+    <h1 class="heading">Diseña tu<br><span class="accent">Prenda</span></h1>
+    <p class="subheading">Describe lo que imaginas, elige el estilo y genera tu pieza única.</p>
+
+    <div class="form-group">
+      <label class="label">Descripción</label>
+      <textarea id="descInput" class="textarea" placeholder="Ej: camiseta negra con galaxia y colores neón..." rows="4"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label class="label">Inspiración (Opcional)</label>
+      <div class="file-upload" id="fileUploadWrapper">
+        <input type="file" id="imageInput" accept="image/*" class="file-input">
+        <div class="file-label" id="fileLabel">
+          <span class="file-icon">📸</span>
+          <span id="fileText">Sube una imagen de referencia...</span>
+        </div>
+        <img id="imagePreview" class="hidden" alt="Inspiración">
+        <button id="clearImageBtn" class="clear-btn hidden" title="Eliminar imagen">×</button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="label">Estilo</label>
+      <div class="style-pills" id="stylePills">
+        <button class="pill active" data-style="streetwear">Streetwear</button>
+        <button class="pill" data-style="minimalista">Minimalista</button>
+        <button class="pill" data-style="futurista">Futurista</button>
+        <button class="pill" data-style="vintage">Vintage</button>
+        <button class="pill" data-style="abstracto">Abstracto</button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="label">Prenda</label>
+      <div class="garment-grid" id="garmentGrid">
+        <button class="garment-btn active" data-garment="camiseta" data-price="29.99">
+          <span class="garment-icon">👕</span>
+          <span>Camiseta</span>
+          <span class="garment-price">$29.99</span>
+        </button>
+        <button class="garment-btn" data-garment="hoodie" data-price="49.99">
+          <span class="garment-icon">🧥</span>
+          <span>Hoodie</span>
+          <span class="garment-price">$49.99</span>
+        </button>
+        <button class="garment-btn" data-garment="chaqueta" data-price="69.99">
+          <span class="garment-icon">🧣</span>
+          <span>Chaqueta</span>
+          <span class="garment-price">$69.99</span>
+        </button>
+        <button class="garment-btn" data-garment="vestido" data-price="44.99">
+          <span class="garment-icon">👗</span>
+          <span>Vestido</span>
+          <span class="garment-price">$44.99</span>
+        </button>
+      </div>
+    </div>
+
+    <button class="generate-btn" id="generateBtn" onclick="generateDesign()">
+      <span id="btnText">Generar Diseño</span>
+      <div class="spinner hidden" id="spinner"></div>
+    </button>
+
+    <div class="status-msg hidden" id="statusMsg"></div>
+  </section>
+
+  <!-- RIGHT: Preview -->
+  <section class="panel-right">
+    <div class="preview-card" id="previewCard">
+      <!-- Empty state -->
+      <div class="preview-empty" id="previewEmpty">
+        <div class="preview-icon">✦</div>
+        <p>Tu diseño aparecerá aquí</p>
+        <span>Describe y genera para ver el resultado</span>
+      </div>
+      <!-- Generated image -->
+      <img class="preview-img hidden" id="previewImg" alt="Diseño generado">
+    </div>
+
+    <!-- Add to Cart controls (hidden until image generated) -->
+    <div class="cart-controls hidden" id="cartControls">
+      <div class="price-row">
+        <span class="price-label">Precio</span>
+        <span class="price-value" id="displayPrice">$29.99</span>
+      </div>
+      <div class="size-row">
+        <label class="label">Talla</label>
+        <div class="size-btns">
+          <button class="size-btn" data-size="XS">XS</button>
+          <button class="size-btn active" data-size="S">S</button>
+          <button class="size-btn" data-size="M">M</button>
+          <button class="size-btn" data-size="L">L</button>
+          <button class="size-btn" data-size="XL">XL</button>
+        </div>
+      </div>
+      <button class="add-btn" id="addBtn" onclick="addToCart()">
+        Agregar al Carrito
+      </button>
+      <p class="beta-note">✦ Beta — Diseño generado con IA exclusivo para ti</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- TOAST -->
+<div class="toast hidden" id="toast"></div>
+
+<script src="js/cart.js"></script>
+<script src="js/creator.js"></script>
+</body>
+</html>

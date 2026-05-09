@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Know U — Carrito</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">KNOW<span class="accent">U</span></a>
+  <a href="/cart" class="cart-btn" id="cartBtn">
+    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/>
+      <path d="M16 10a4 4 0 01-8 0"/>
+    </svg>
+    <span class="cart-badge" id="cartBadge">0</span>
+  </a>
+</nav>
+
+<main class="cart-page">
+  <div class="cart-header">
+    <h1 class="heading">Tu <span class="accent">Carrito</span></h1>
+    <a href="/" class="back-link">← Crear más prendas</a>
+  </div>
+
+  <!-- Empty state -->
+  <div class="cart-empty hidden" id="cartEmpty">
+    <div class="preview-icon">🛒</div>
+    <p>Tu carrito está vacío</p>
+    <a href="/" class="add-btn" style="display:inline-block;text-decoration:none;margin-top:1.5rem;">Diseñar una Prenda</a>
+  </div>
+
+  <!-- Items list -->
+  <div class="cart-items" id="cartItems"></div>
+
+  <!-- Summary -->
+  <div class="cart-summary hidden" id="cartSummary">
+    <div class="summary-row">
+      <span>Subtotal</span>
+      <span id="summarySubtotal">$0.00</span>
+    </div>
+    <div class="summary-row">
+      <span>Envío</span>
+      <span class="accent">Calculado al finalizar</span>
+    </div>
+    <div class="summary-row total-row">
+      <span>Total</span>
+      <span id="summaryTotal">$0.00</span>
+    </div>
+    <button class="add-btn" onclick="checkout()">Finalizar Compra</button>
+    <p class="beta-note" style="text-align:center;margin-top:1rem">✦ Beta — Simulación de Pedidos</p>
+  </div>
+</main>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay hidden" id="checkoutModal">
+  <div class="modal">
+    <h2 class="modal-title">Completar Pedido</h2>
+    <div class="form-group">
+      <input type="text" id="custName" class="input-text" placeholder="Nombre completo" required>
+      <input type="email" id="custEmail" class="input-text" placeholder="Correo electrónico" required>
+      <input type="text" id="custAddress" class="input-text" placeholder="Dirección de envío" required>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="closeCheckout()">Cancelar</button>
+      <button class="btn-primary" onclick="submitCheckout()" id="submitOrderBtn">Confirmar Pedido</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast hidden" id="toast"></div>
+
+<script src="js/cart.js"></script>
+<script>renderCartPage();</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+[
+  {
+    "id": "KU-667941",
+    "date": "2026-05-01 15:39:01",
+    "customer": {
+      "name": "LUIS MEDRANO",
+      "email": "lmedrano2314@gmail.com",
+      "address": "Carrera 1 24 112"
+    },
+    "items": [
+      {
+        "garment": "camiseta",
+        "style": "minimalista",
+        "size": "S",
+        "price": 29.99,
+        "image_url": "https://replicate.delivery/xezq/rezDxr4ynOyXNSfDWO0tO7PZqNKXKeoFOOLdEwQeDzVELvCaB/tmp_sl45e17.png",
+        "description": "Camisa blanca de nike",
+        "id": "item_1777666783417",
+        "qty": 1
+      }
+    ],
+    "total": 29.99,
+    "status": "Pendiente"
+  }
+]

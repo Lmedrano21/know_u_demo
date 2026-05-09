@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Know U — Admin Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">KNOW<span class="accent">U</span> <span style="font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-left: 1rem;">ADMIN</span></a>
+</nav>
+
+<main id="loginView" class="admin-login">
+  <h2 class="heading" style="font-size: 2rem; margin-bottom: 1.5rem;">Acceso <span class="accent">Admin</span></h2>
+  <div class="form-group">
+    <input type="password" id="adminPass" class="input-text" placeholder="Contraseña secreta">
+    <button class="btn-primary" style="width: 100%;" onclick="login()">Entrar</button>
+  </div>
+  <p id="loginError" class="status-msg error hidden"></p>
+</main>
+
+<main id="dashboardView" class="admin-container hidden">
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem;">
+    <h1 class="heading" style="font-size: 2.2rem;">Gestión de <span class="accent">Pedidos</span></h1>
+    <button class="btn-secondary" onclick="fetchOrders()" style="padding: 0.5rem 1rem;">Actualizar</button>
+  </div>
+
+  <div class="table-wrapper">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>ID Pedido</th>
+          <th>Fecha</th>
+          <th>Cliente</th>
+          <th>Artículos</th>
+          <th>Total</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody id="ordersBody">
+        <!-- Generado dinámicamente -->
+      </tbody>
+    </table>
+  </div>
+  <div id="noOrdersMsg" class="hidden" style="text-align: center; padding: 3rem; color: var(--muted);">No hay pedidos registrados todavía.</div>
+</main>
+
+<script src="js/admin.js"></script>
+</body>
+</html>
