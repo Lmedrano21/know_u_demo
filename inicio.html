@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/principal.css') }}">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <h1> ℉ </h1>
+        <button onclick="cerrarSesion()">Cerrar Sesión</button>
+    </div>
+
+    <div class="contenido">
+        <div class="card">
+            <div class="avatar" id="avatar"> </div>
+            <h2 id="nombre">Cargando...</h2>
+            <p id="email"></p>
+            <p id="telefono"></p>
+            <span class="badge"> Sesión activa</span>
+        </div>
+    </div>
+</body>
+</html>
