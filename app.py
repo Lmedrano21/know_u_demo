@@ -16,15 +16,15 @@ def registro():
     return render_template('registro.html')
 
 @app.route('/admin')
-def inicio():
+def admin():
     return render_template('admin.html')
 
 @app.route('/cart')
-def inicio():
+def cart():
     return render_template('cart.html')
 
 @app.route('/index')
-def inicio():
+def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
