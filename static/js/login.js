@@ -16,7 +16,7 @@ async function login() {
             mensaje.textContent = '¡Bienvenido ' + data.usuario.nombre + '!';
             localStorage.setItem('token', data.token);
             localStorage.setItem('usuario', JSON.stringify(data.usuario));
-            setTimeout(() => window.location.href = '/inicio', 1000);
+            setTimeout(() => window.location.href = '/index', 1000);
         } else {
             mensaje.className = 'mensaje error';
             mensaje.textContent = data.error;
