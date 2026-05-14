@@ -36,17 +36,26 @@ import webbrowser          # Para abrir navegador automáticamente
 import json                # Para trabajar con archivos JSON
 import datetime            # Para fechas y horas de pedidos
 import replicate           # API para generar imágenes con IA (FLUX, SDXL)
+from dotenv import load_dotenv
 from flask import Flask, request, jsonify, send_from_directory  # Web framework
 
 
 # ════════════════════════════════════════════════════════════════════════════
 # CONFIGURACIÓN - Constantes del sistema
 # ════════════════════════════════════════════════════════════════════════════
+# Carga variables del archivo .env
+load_dotenv()
 
 # Token API para acceder a Replicate (generador de imágenes con IA)
 # IMPORTANTE: Mantén este token seguro, no lo compartas públicamente
-REPLICATE_API_TOKEN = "r8_Ei9vtIXmLhtzoJN6wOlY9MTeg2w3kJ81j55lu"
+# Token API obtenido desde variables de entorno
+REPLICATE_API_TOKEN = os.getenv("REPLICATE_API_TOKEN")
 
+# Verifica que exista el token
+if not REPLICATE_API_TOKEN:
+    raise ValueError(
+        "REPLICATE_API_TOKEN no encontrado en variables de entorno"
+    )
 # Puerto donde escucha el servidor
 PORT = 5000
 

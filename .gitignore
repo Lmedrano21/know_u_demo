@@ -1,0 +1,7 @@
+.env
+venv/
+__pycache__/
+
+# .env → nunca se sube el token
+# venv/ → no subes el entorno virtual
+# __pycache__/ → no subes basura de Python
